@@ -1,7 +1,7 @@
 {
-    "name": "@pcrab/solidjs-ts-template",
+    "name": "smanis-web",
     "version": "1.0.0",
-    "description": "A simple soldjs git repo template",
+    "description": "Smanis frontend",
     "scripts": {
         "build": "vite build",
         "dev": "vite serve",
