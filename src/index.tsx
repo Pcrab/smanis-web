@@ -1,7 +1,9 @@
 /* @refresh reload */
 import { render } from "solid-js/web";
 import { Router, hashIntegration } from "@solidjs/router";
+import "./clear.css";
 import App from "./App";
+import "virtual:uno.css";
 
 const root = document.getElementById("root");
 

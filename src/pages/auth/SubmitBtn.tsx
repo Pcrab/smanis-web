@@ -8,11 +8,16 @@ import globalUsername from "../../signals/username";
 import globalToken from "../../signals/token";
 import globalAddress from "../../signals/address";
 
+import style from "./SubmitBtn.module.css";
+
 const firstSubmit = buildSignal(true);
 const submitting = buildSignal(false);
 
 const SubmitBtn = () => {
     const submit = async () => {
+        if (submitting.get()) {
+            return;
+        }
         if (!id.get() || !password.get() || !address.get()) {
             const msg = "id || password || address is empty";
             errorMsg.set(msg);
@@ -50,6 +55,7 @@ const SubmitBtn = () => {
                 username?: string;
                 token?: string;
             };
+
             localStorage.setItem("id", result.id || "");
             localStorage.setItem("token", result.token || "");
             localStorage.setItem("username", result.username || "");
@@ -59,6 +65,11 @@ const SubmitBtn = () => {
             globalToken.set(result.token || "");
             globalUsername.set(result.username || "");
             globalAddress.set(address.get());
+
+            id.set("");
+            password.set("");
+            address.set("");
+            firstSubmit.set(true);
         } catch {
             msg = "Login failed";
         } finally {
@@ -73,15 +84,15 @@ const SubmitBtn = () => {
     };
 
     return (
-        <div>
-            {submitting.get() ? (
-                <div>Cycle</div>
-            ) : (
-                <div onClick={() => void submit()}>
-                    {firstSubmit.get() ? "Submit" : "Retry"}
-                </div>
-            )}
-        </div>
+        <>
+            <div class={style.submitBtn} onClick={() => void submit()}>
+                {submitting.get()
+                    ? "Cycle"
+                    : firstSubmit.get()
+                    ? "Submit"
+                    : "Retry"}
+            </div>
+        </>
     );
 };
 

@@ -1,0 +1,36 @@
+.navigation_bar {
+    display: flex;
+    z-index: 1000;
+    position: fixed;
+    bottom: 0;
+    padding: 1rem 0;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--surface);
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.icon_bg {
+    width: 5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.2rem;
+    border-radius: 2.5rem;
+}
+
+.active {
+    background-color: var(--container);
+}
+
+.icon {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+}

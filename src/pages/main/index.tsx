@@ -6,6 +6,8 @@ import Exam from "./pages/exam";
 import Settings from "./pages/settings";
 import { Dynamic } from "solid-js/web";
 
+import style from "./index.module.css";
+
 const pages = {
     exam: Exam,
     review: Review,
@@ -24,35 +26,73 @@ const Main = () => {
             navigate("/", { replace: true });
         },
     });
+
     return (
-        <div>
+        <>
             <div>
                 <Dynamic component={pages[currentPage.get()]} />
             </div>
-            <div>
+            <div class={style.navigation_bar}>
                 <div
+                    class={style.item}
                     onClick={() => {
                         currentPage.set("exam");
                     }}
                 >
-                    Exam
+                    <div
+                        class={
+                            (style.icon_bg || "") +
+                            (currentPage.get() === "exam"
+                                ? " " + (style.active || "")
+                                : "")
+                        }
+                    >
+                        <div
+                            class={(style.icon || "") + " i-mdi-tennis-ball"}
+                        ></div>
+                    </div>
+                    <div>Exam</div>
                 </div>
                 <div
+                    class={style.item}
                     onClick={() => {
                         currentPage.set("review");
                     }}
                 >
-                    Review
+                    <div
+                        class={
+                            (style.icon_bg || "") +
+                            (currentPage.get() === "review"
+                                ? " " + (style.active || "")
+                                : "")
+                        }
+                    >
+                        <div
+                            class={(style.icon || "") + " i-mdi-tennis-ball"}
+                        ></div>
+                    </div>
+                    <div>Review</div>
                 </div>
                 <div
+                    class={style.item}
                     onClick={() => {
                         currentPage.set("settings");
                     }}
                 >
-                    Settings
+                    <div
+                        class={
+                            (style.icon_bg || "") +
+                            (currentPage.get() === "settings"
+                                ? " " + (style.active || "")
+                                : "")
+                        }
+                    >
+                        <div class={(style.icon || "") + " i-mdi-cog"}></div>
+                    </div>
+                    <div>Settings</div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

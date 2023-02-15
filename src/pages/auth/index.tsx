@@ -5,6 +5,7 @@ import id from "./signals/id";
 import password from "./signals/password";
 import address from "./signals/address";
 import SubmitBtn from "./SubmitBtn";
+import Input from "./Input";
 
 const Auth = () => {
     const navigate = useNavigate();
@@ -15,35 +16,22 @@ const Auth = () => {
     });
 
     return (
-        <div>
+        <div class="flex flex-col justify-center items-center h-80%">
             <div>Logo</div>
-            <input
-                type="text"
-                placeholder="用户名"
-                onInput={(e) => {
-                    id.set(e.currentTarget.value);
-                }}
-            />
-            {id.get()}
-            <input
+            <Input id="id" placeholder="用户 ID" type="text" value={id} />
+            <Input
+                id="password"
+                placeholder="用户密码"
                 type="password"
-                placeholder="密码"
-                onInput={(e) => {
-                    password.set(e.currentTarget.value);
-                }}
+                value={password}
             />
-            {password.get()}
-            <input
-                type="text"
+            <Input
+                id="address"
                 placeholder="服务器地址"
-                onInput={(e) => {
-                    address.set(e.currentTarget.value);
-                }}
+                type="text"
+                value={address}
             />
-            {address.get()}
-            <div>
-                <SubmitBtn />
-            </div>
+            <SubmitBtn />
         </div>
     );
 };

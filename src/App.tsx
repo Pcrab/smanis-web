@@ -4,12 +4,12 @@ import Main from "./pages/main";
 
 const App = () => {
     return (
-        <>
+        <div class="w-100% h-100%">
             <Routes>
                 <Route path="/" component={Auth} />
                 <Route path="/main" component={Main} />
             </Routes>
-        </>
+        </div>
     );
 };
 
