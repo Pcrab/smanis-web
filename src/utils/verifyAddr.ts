@@ -1,9 +1,9 @@
-const urlRegex = /^(http|https):\/\/[a-zA-Z0-9-_.]+$/;
-const verifyAddr = (addr: string) => {
+const urlRegex = /^(http|https):\/\/[a-zA-Z0-9-_.]+(:[0-9]+)?$/;
+const verifyAddr = (addr: string): string => {
     if (!urlRegex.test(addr)) {
-        return true;
+        return "Invalid URL";
     }
-    return true;
+    return "";
 };
 
 export default verifyAddr;

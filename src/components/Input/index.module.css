@@ -2,7 +2,7 @@
     position: relative;
     width: 80%;
     margin: 0 auto;
-    padding: 1rem 0;
+    padding: 1rem 0 0.5rem 0;
 }
 
 .input {
@@ -24,8 +24,8 @@
 .label {
     color: var(--outline);
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 1rem;
+    bottom: 0.5rem;
     display: flex;
     align-items: center;
     pointer-events: none;
@@ -47,4 +47,13 @@
 
 .label .text {
     transition: all 0.2s ease-out;
+}
+
+.error_msg {
+    height: 1.2rem;
+}
+
+.error {
+    border-color: var(--error) !important;
+    color: var(--error) !important;
 }

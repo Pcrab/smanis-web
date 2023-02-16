@@ -1,8 +1,10 @@
-const verifyId = (id: string): boolean => {
-    if (id.length !== 32) {
-        return false;
+const idRegex = /[0-9a-fA-F]{24}/;
+
+const verifyId = (id: string): string => {
+    if (!idRegex.test(id)) {
+        return "Invalid ID";
     }
-    return true;
+    return "";
 };
 
 export default verifyId;
